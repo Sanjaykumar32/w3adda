@@ -1,0 +1,19 @@
+@mixin flexprop1 {
+    display: flex;
+    align-items: center;
+  }
+  @mixin flexprop2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @mixin flexprop3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @mixin commonprop($par1, $par2) {
+    background: $par1;
+    color: $par2;
+  }
+  

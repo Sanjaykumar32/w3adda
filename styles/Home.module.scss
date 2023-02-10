@@ -1,0 +1,923 @@
+// // @import "variable";
+// @import "mixin";
+
+// $primaryClr: #4527a4;
+// $secondaryClr: #ffb700;
+// $themeClr: #4535aa;
+// $themeLight: #e7e4f8;
+// $whiteClr: #ffffff;
+// $blackClr: #212529;
+// $textClr: #4f4f4f;
+// $textLight: #6c757d;
+// $footTextClr: rgba(255, 255, 255, 0.7);
+
+// *{
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+// html,
+// body {
+//   @include commonprop($whiteClr, $blackClr);
+//   font-size: 15px;
+//   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+//     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+//     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+//   font-weight: 400;
+//   overflow-x: hidden;
+// }
+// a {
+//   html {
+//     scroll-behavior: smooth;
+//   }
+//   text-decoration: none;
+//   transition: all 0.4s ease-in-out;
+// }
+// .btn {
+//   border: 0;
+//   transition: all 0.3s ease-in-out;
+// }
+// .btn:focus {
+//   outline: 0;
+//   box-shadow: none;
+// }
+// ul {
+//   list-style: none;
+//   padding: 0;
+// }
+// hr {
+//   color: #b1bfcb;
+//   margin: 2rem 0;
+// }
+// .primary_btn {
+//   padding: 0.5rem 1rem;
+//   display: inline-block;
+//   border: 1px solid transparent;
+//   border-radius: 0.25rem;
+//   transition: all 0.3s ease-in-out;
+// }
+// .primary_btn {
+//   @include commonprop($primaryClr, $whiteClr);
+//   border-color: $primaryClr;
+//   &:hover {
+//     background: #2f218c;
+//     color: $whiteClr;
+//   }
+// }
+// .navbar-toggler {
+//   display: block;
+//   padding: 0;
+//   border: 0;
+//   &:focus {
+//     box-shadow: none;
+//   }
+// }
+// .heading {
+//   color: $blackClr;
+//   font-size: 2.5rem;
+//   font-weight: 300;
+//   text-align: center;
+// }
+
+// /*============ Header CSS Start ============*/
+// .header {
+//   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+//   position: relative;
+//   .navbar-brand {
+//     img {
+//       max-width: 120px;
+//     }
+//   }
+//   .search_box {
+//     width: 100%;
+//     margin: 0.5rem 0;
+//     position: relative;
+//     .form-control {
+//       height: 2.5rem;
+//       padding-right: 3.25rem;
+//       border: 0;
+//       border: 1px solid #d3dce6;
+//       border-radius: 0.25rem;
+//       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+//     }
+//     .btn {
+//       position: absolute;
+//       top: 1px;
+//       right: 1px;
+//       width: 2.5rem;
+//       height: calc(100% - 2px);
+//       background: $themeClr;
+//       border-radius: 0.2rem;
+//     }
+//   }
+//   .navbar {
+//     transition: all 0.3s ease-in-out;
+//     .navbar-nav {
+//       .nav-item {
+//         position: relative;
+//         .nav-link {
+//           color: rgba(0, 0, 0, 0.55);
+//           letter-spacing: 0.02em;
+//           line-height: 1.7;
+//           padding: 0.5rem 0.75rem;
+//           svg {
+//             width: 1.25rem;
+//             margin-left: auto;
+//             fill: currentColor;
+//             transition: transform 0.2s;
+//           }
+//           &:hover,
+//           &:focus,
+//           &.active {
+//             color: rgba(0, 0, 0, 0.7);
+//             svg {
+//               transform: rotate(180deg);
+//             }
+//           }
+//         }
+//         .menu {
+//           position: absolute;
+//           width: 300px;
+//           transform: translateY(1rem);
+//           opacity: 0;
+//           visibility: hidden;
+//           transition: all 0.3s;
+//           z-index: 100;
+//           ul {
+//             background: $whiteClr;
+//             margin-top: 0.5rem;
+//             padding: 0.5rem 0;
+//             border-radius: 0.35rem;
+//             box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+//               0 15px 12px rgba(0, 0, 0, 0.22);
+//             li {
+//               color: $blackClr;
+//               display: flex;
+//               align-items: center;
+//               padding: 0.75rem 1.5rem;
+//               transition: all 0.4s ease-in-out;
+//               &.info {
+//                 color: $blackClr !important;
+//                 font-size: 0.85rem;
+//                 font-weight: 300 !important;
+//                 &:hover {
+//                   background: transparent !important;
+//                 }
+//               }
+//               a {
+//                 color: $blackClr;
+//                 img {
+//                   width: 1.75rem;
+//                   height: 1.75rem;
+//                   margin-right: 1rem;
+//                 }
+//               }
+//               &:hover {
+//                 background: $primaryClr;
+//                 a {
+//                   color: $whiteClr;
+//                 }
+//               }
+//             }
+//           }
+//           .main_dropdown {
+//             top: -10px;
+//             margin-top: 0.5rem;
+//             border-radius: 0.4rem;
+//             box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px,
+//               rgba(0, 0, 0, 0.22) 0 15px 12px;
+//             transform: translateY(1rem);
+//             transition: all 0.3s;
+//             background-color: #fff;
+//             overflow: auto;
+//             position: relative;
+//             width: 80%;
+//             .tutorial_section {
+//               display: flex;
+//               .toggle {
+//                 width: 30%;
+//                 padding: 20px;
+//                 background-color: #f8f7fa;
+//                 border-bottom: 1px solid #ddd;
+//                 a {
+//                   color: $blackClr;
+//                   span {
+//                     &.cat_text {
+//                       font-weight: 300;
+//                       margin-left: 0.5rem;
+//                     }
+//                     &.float-end {
+//                       float: right;
+//                       opacity: 0;
+//                       visibility: hidden;
+//                       transition: all 0.3s;
+//                     }
+//                   }
+//                 }
+//               }
+//               &:hover {
+//                 .toggle {
+//                   a {
+//                     span {
+//                       &.float-end {
+//                         opacity: 1;
+//                         visibility: visible;
+//                         transform: translateX(0.5rem);
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//               .slidenew {
+//                 position: absolute;
+//                 top: 0;
+//                 left: 30%;
+//                 height: 100%;
+//                 width: 70%;
+//                 background-color: #fff;
+//                 overflow: hidden;
+//                 display: none;
+//                 border-radius: 0 0.4rem 0.4rem 0;
+//                 &.active {
+//                   display: block;
+//                 }
+//                 a {
+//                   h3 {
+//                     color: $textLight;
+//                     font-size: 1rem;
+//                   }
+//                 }
+//                 .mega-url-list {
+//                   font-size: 0.95rem;
+//                   p {
+//                     margin-bottom: 1rem;
+//                     .mega-link {
+//                       color: $blackClr;
+//                       &:hover {
+//                         text-decoration: underline;
+//                       }
+//                     }
+//                   }
+//                 }
+//                 .mega-link-pill {
+//                   font-size: 0.95rem;
+//                   padding: 0.35rem 0.7rem;
+//                   margin-right: 1rem;
+//                   background: $whiteClr;
+//                   color: $primaryClr;
+//                   border-radius: 0.35rem;
+//                   &:hover {
+//                     background: $primaryClr;
+//                     color: $whiteClr;
+//                   }
+//                 }
+//               }
+//               .toggle {
+//                 &:hover {
+//                   + .slidenew {
+//                     display: block;
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         &:hover {
+//           .menu {
+//             transform: translateY(0);
+//             opacity: 1;
+//             visibility: visible;
+//           }
+//         }
+//         &.mega-dropdown {
+//           .menu {
+//             width: 12000px;
+//             left: -50px;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   &.is_sticky {
+//     .navbar {
+//       position: fixed;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       width: 100%;
+//       height: auto;
+//       background: #fff;
+//       z-index: 999;
+//       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+//       transition: all 0.3s ease-in-out;
+//     }
+//   }
+// }
+
+// .offcanvas {
+//   max-width: 75%;
+//   .offcanvas-header {
+//     padding: 0.75rem 1rem;
+//     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+//   }
+//   .tutorial_link {
+//     width: 100%;
+//     padding: 1rem 0;
+//     a {
+//       color: $textLight;
+//       svg {
+//         max-width: 1.5rem;
+//       }
+//     }
+//     > a {
+//       color: $blackClr;
+//     }
+//   }
+// }
+// /*============ Header CSS End ============*/
+
+// /*============ main-content CSS Start ============*/
+// .banner {
+//   padding: 4rem 0;
+//   .banner_text {
+//     h1 {
+//       font-size: 4.25rem;
+//       font-weight: 900;
+//       margin-bottom: 0;
+//       &.text_prog {
+//         color: $secondaryClr;
+//       }
+//       &.text_edu {
+//         color: $themeClr;
+//       }
+//       &.text_simp {
+//         color: $blackClr;
+//       }
+//     }
+//     p {
+//       color: $textClr;
+//       font-size: 1.6rem;
+//       font-weight: 300;
+//       margin: 1rem 0 0;
+//     }
+//   }
+//   .image {
+//     visibility: visible;
+//     animation: 1500ms 0ms slideInRight;
+//     @keyframes slideInRight {
+//       0% {
+//         transform: translate3d(100%, 0, 0);
+//         visibility: visible;
+//       }
+//       100% {
+//         transform: translate3d(0, 0, 0);
+//       }
+//     }
+//     img {
+//       animation: moving 3s infinite linear;
+//       @keyframes moving {
+//         0% {
+//           left: 0;
+//         }
+//         50% {
+//           left: 0;
+//           transform: translateY(-10px);
+//         }
+//         100% {
+//           left: 0;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .everything {
+//   padding: 2rem 0;
+//   .text_free {
+//     color: $textClr;
+//     font-weight: 300;
+//     text-align: center;
+//     margin-top: 1rem;
+//   }
+//   .content_box {
+//     text-align: center;
+//     padding: 1.5rem;
+//     margin-top: 1.5rem;
+//     .img_box {
+//       max-width: 80px;
+//       margin: 0 auto;
+//     }
+//     h4 {
+//       color: $blackClr;
+//       font-weight: 600;
+//       margin: 1rem 0;
+//     }
+//     p {
+//       color: $textClr;
+//     }
+//   }
+// }
+
+// .online_practice {
+//   padding: 2rem 0;
+//   .img_box {
+//     img {
+//       max-width: calc(100% - -70px);
+//       height: auto;
+//       animation: moving 3s infinite linear;
+//     }
+//     @keyframes moving {
+//       0% {
+//         left: 0;
+//       }
+//       50% {
+//         left: 0;
+//         transform: translateY(-10px);
+//       }
+//       100% {
+//         left: 0;
+//       }
+//     }
+//   }
+//   .compiler_options_box {
+//     display: grid;
+//     grid-gap: 1rem;
+//     grid-template-columns: repeat(2, 1fr);
+//     position: relative;
+//     z-index: 2;
+//     a {
+//       background: $whiteClr;
+//       line-height: 24px;
+//       padding: 0.75rem 1rem;
+//       border: 1px solid #e8e8e8;
+//       border-radius: 0.25rem;
+//       box-shadow: 0 8px 12px rgba(2, 30, 84, 0.06);
+//       h5 {
+//         color: $primaryClr;
+//         margin-bottom: 0.5rem;
+//       }
+//       svg {
+//         margin-left: 5px;
+//       }
+//       &:hover {
+//         span,
+//         svg {
+//           color: $primaryClr;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .popular_resources {
+//   padding: 2rem 0;
+//   h4 {
+//     font-weight: 300;
+//     text-align: center;
+//   }
+//   .resources_content {
+//     display: grid;
+//     grid-gap: 1.5rem;
+//     grid-template-columns: repeat(5, 1fr);
+//     margin-top: 3rem;
+//     .content_box {
+//       background: $whiteClr;
+//       text-align: center;
+//       padding: 3rem 0.5rem;
+//       border: 1px solid #f2f2f2;
+//       border-radius: 0.25rem;
+//       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+//       img {
+//         max-height: 50px;
+//         margin-bottom: 1rem;
+//       }
+//       p {
+//         color: $primaryClr;
+//         font-size: 1.15rem;
+//         font-weight: 500;
+//         margin-bottom: 0;
+//       }
+//       &:hover {
+//         p {
+//           color: $blackClr;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .tutorials {
+//   padding: 2rem 0;
+//   .category_box {
+//     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+//     padding: 1rem;
+//     margin-bottom: 1.5rem;
+//     h1 {
+//       @include flexprop1;
+//       color: $secondaryClr;
+//       font-weight: 300;
+//       margin-bottom: 1rem;
+//       figure {
+//         margin-bottom: 0;
+//         margin-right: 1rem;
+//       }
+//     }
+//     .category_info {
+//       background: #dfecff;
+//       color: $blackClr;
+//       padding: 1rem 0.5rem;
+//       margin: 0.5rem 0 1rem;
+//       border-radius: 0.25rem;
+//       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+//       &.bg-danger {
+//         background: #ed639e !important;
+//         color: $whiteClr;
+//       }
+//     }
+//   }
+//   .text_simplified {
+//     color: $textClr;
+//     font-weight: 300;
+//     text-align: center;
+//     margin-top: 1rem;
+//   }
+// }
+
+// .tutorial_index {
+//   padding: 2rem 0;
+//   .comn_box {
+//     color: $textLight;
+//     font-weight: 300;
+//     padding: 0.5rem 0;
+//     border-bottom: 1px solid #ddd;
+//     h4 {
+//       color: $blackClr;
+//       font-weight: 300;
+//       margin-bottom: 0;
+//       margin-top: 0.5rem;
+//     }
+//   }
+//   .heading {
+//     padding-bottom: 2rem;
+//     border-bottom: 1px solid #ddd;
+//   }
+//   .accordion {
+//     .accordion-item {
+//       padding-top: 0.75rem;
+//       border-width: 0;
+//       border-bottom-width: 1px;
+//       &:last-child {
+//         border-bottom-width: 0;
+//       }
+//       .top_heading {
+//         h2 {
+//           color: $blackClr;
+//           font-weight: 300;
+//           svg {
+//             margin-left: auto;
+//             float: right;
+//           }
+//         }
+//         span {
+//           color: $textLight;
+//         }
+//       }
+//       .accordion-header {
+//         .accordion-button {
+//           background: transparent;
+//           color: $textClr;
+//           padding: 1rem 0.5rem;
+//           border: 0;
+//           &:focus {
+//             border: 0;
+//             outline: 0;
+//             box-shadow: none;
+//           }
+//           &:not(.collapsed)::after {
+//             filter: brightness(0.2);
+//           }
+//         }
+//       }
+//       .accordion-body {
+//         a {
+//           color: $primaryClr;
+//           display: block;
+//           line-height: 2;
+//           &:hover {
+//             color: $blackClr;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .split_box {
+//   display: grid;
+//   grid-column-gap: 10px;
+//   grid-template-columns: 260px (calc(100% - 670px)) 390px;
+//   .aside_nav {
+//     .navbar {
+//       .navbar-collapse {
+//         padding: 0;
+//         .accordion {
+//           width: 100%;
+//           height: 100%;
+//           min-height: calc(100vh - 65px);
+//           margin-left: 0.65rem;
+//           .accordion-item {
+//             border-width: 0;
+//             border-bottom-width: 1px;
+//             border-color: #eee;
+//             .accordion-header {
+//               .accordion-button {
+//                 background: transparent;
+//                 color: $blackClr;
+//                 font-weight: 500;
+//                 padding: 0.75rem 0;
+//                 border-radius: 0;
+//                 box-shadow: none;
+//                 &::after {
+//                   width: 1rem;
+//                   height: 1rem;
+//                   background-size: 1rem;
+//                   filter: brightness(0);
+//                 }
+//               }
+//             }
+//             .accordion-body {
+//               padding: 0;
+//               .navbar-nav {
+//                 flex-direction: column;
+//                 padding: 0;
+//                 h5 {
+//                   padding-left: 1rem;
+//                 }
+//                 .nav-item {
+//                   .nav-link {
+//                     padding: 0.35rem 0.7rem;
+//                     border-radius: 0.25rem;
+//                     &:hover {
+//                       background: #cccccc;
+//                     }
+//                     &:focus,
+//                     &.active {
+//                       background: #f857a6;
+//                       background: linear-gradient(to right, #4535aa, #ed639e);
+//                       color: $whiteClr;
+//                       box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.25);
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .middle_content {
+//     min-height: calc(100vh - 201px);
+//     padding: 2rem 1rem;
+//     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2) !important;
+//     .top_heading {
+//       h2 {
+//         font-weight: 600;
+//         margin-bottom: 1.5rem;
+//       }
+//     }
+//     .category_content {
+//       p {
+//         color: $blackClr;
+//         font-size: 1.25rem;
+//         line-height: 2rem;
+//       }
+//       a {
+//         color: $primaryClr;
+//         font-size: 1.25rem;
+//         text-decoration: underline;
+//       }
+//       code {
+//         font-size: 1.25rem;
+//         line-height: 2rem;
+//       }
+//       h2 {
+//         margin: 1.75rem 0;
+//       }
+//       ul {
+//         list-style: disc;
+//         padding-left: 2rem;
+//       }
+//       li {
+//         font-size: 1.25rem;
+//         margin-bottom: 1rem;
+//       }
+//       .code_example_box {
+//         position: relative;
+//         .code_example {
+//           background: #171338;
+//           padding: 1em;
+//           overflow: auto;
+//           border-radius: 0.35em;
+//           p {
+//             color: #f8f8f2;
+//             font-size: 1.35rem;
+//             .number {
+//               color: #f92672;
+//             }
+//             .comment {
+//               color: #808080;
+//               padding-left: 35px;
+//             }
+//             .keyword {
+//               color: #e6db74;
+//             }
+//             .string {
+//               color: #a6e22e;
+//             }
+//             .space {
+//               padding-left: 35px;
+//             }
+//           }
+//         }
+//         .text_copy_btn {
+//           position: absolute;
+//           top: 0.3em;
+//           right: 0.45em;
+//           transition: 0.3s ease-in-out;
+//           opacity: 0;
+//           display: inline-block;
+//           .copy_btn {
+//             background: transparent;
+//             color: #999;
+//             padding: 0 0.6em;
+//             border: solid 2px #e7e4f8;
+//             border-radius: 0.2em;
+//           }
+//         }
+//         &:hover {
+//           .text_copy_btn {
+//             opacity: 1;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .right_content {
+//     .content_box {
+//       background: $whiteClr;
+//       padding: 1rem;
+//       margin-bottom: 1rem;
+//       border-left: 5px solid transparent;
+//       &.border-danger {
+//         border-color: #ed639e;
+//       }
+//       &.border-primary {
+//         border-color: $primaryClr;
+//       }
+//       &.border-warning {
+//         border-color: $secondaryClr;
+//       }
+//       a {
+//         color: $primaryClr;
+//       }
+//     }
+//   }
+// }
+
+// .static_page {
+//   .static_page_banner {
+//     .banner_img_box {
+//       img {
+//         width: 100%;
+//       }
+//     }
+//   }
+//   .static_page_content {
+//     padding: 2rem 0;
+//     .static_heading {
+//       h1 {
+//         font-weight: 600;
+//         margin-bottom: 1.5rem;
+//         position: relative;
+//         &::after {
+//           position: absolute;
+//           content: "";
+//           bottom: -0.25rem;
+//           left: 0;
+//           width: 3.5rem;
+//           height: 0.25rem;
+//           background: $themeClr;
+//         }
+//       }
+//     }
+//     .static_content {
+//       h5 {
+//         font-weight: 600;
+//         margin-bottom: 1.5rem;
+//       }
+//       P {
+//         &.text_note {
+//           font-weight: 600;
+//           margin-top: 3rem;
+//         }
+//       }
+//     }
+//     .img_box {
+//       img {
+//         animation: floatY 2s linear infinite;
+//         @keyframes floatY {
+//           0% {
+//             transform: translateY(-20px);
+//           }
+//           50% {
+//             transform: translateY(-10px);
+//           }
+//           100% {
+//             transform: translateY(-20px);
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// /*============ main-content CSS End ============*/
+
+// /*============ Footer CSS Start ============*/
+// .footer {
+//   padding: 3rem 0;
+//   border-top: 1px solid $themeLight;
+//   .foot_heading {
+//     color: $blackClr;
+//     font-weight: 300;
+//     padding-bottom: 0.25rem;
+//     border-bottom: 2px solid $textLight;
+//     &.website_text {
+//       border-bottom: 0;
+//     }
+//   }
+//   .foot_link_title {
+//     color: $textClr;
+//     font-weight: 600;
+//     text-align: center;
+//     margin: 1.5rem 0 0.85rem;
+//   }
+//   ul {
+//     &.foot_links {
+//       li {
+//         line-height: 2.5;
+//         a {
+//           color: $primaryClr;
+//           display: block;
+//           &:hover {
+//             color: $blackClr;
+//           }
+//         }
+//       }
+//     }
+//     &.foot_social_links {
+//       @include flexprop1;
+//       margin-bottom: 2rem;
+//       li {
+//         margin-right: 1.5rem;
+//         &:last-child {
+//           margin-right: 0;
+//         }
+//         a {
+//           color: $primaryClr;
+//           display: block;
+//           line-height: 18px;
+//           svg {
+//             // filter: brightness(0.8);
+//             transition: all 0.4s ease-in-out;
+//           }
+//           &:hover {
+//             background: $whiteClr;
+//             border-radius: 0;
+//             svg {
+//               filter: brightness(0.2);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .category_box {
+//     .category_info {
+//       background: #dfecff;
+//       color: $blackClr;
+//       font-size: 1.25rem;
+//       width: 100%;
+//       display: block;
+//       padding: 0.5rem 1rem;
+//       margin: 0.5rem 0 1rem;
+//       border-radius: 0.25rem;
+//       -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+//       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+//     }
+//   }
+//   .copyright_text {
+//     color: $blackClr;
+//   }
+// }
+// /*============ Footer CSS End ============*/
