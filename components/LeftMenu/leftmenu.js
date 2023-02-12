@@ -2,8 +2,8 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 
 
-const Leftmenu = ({ cat , setClose }) => {
-    const [data , setData ] = useState([])
+const Leftmenu = ({ cat, setClose }) => {
+    const [data, setData] = useState([])
 
     const router = useRouter()
     const handleRoute = (link) => {
@@ -11,10 +11,12 @@ const Leftmenu = ({ cat , setClose }) => {
         router.push(`/c-tutorial/${link}`)
     }
 
-    const handleDropDown = (el)=> {
+    const handleDropDown = (el) => {
         setData(el)
-         console.log(el , 'el data')
+        console.log(el, 'el data')
     }
+
+
 
     return (
         <>
@@ -26,7 +28,8 @@ const Leftmenu = ({ cat , setClose }) => {
                     )
                 }
             </ul> */}
-            < div className="accordion-item" >
+
+            {/* < div className="accordion-item" >
                 {cat?.edges?.map((el, index) => {
                     //  console.log(el ,'top map ')
                     return (
@@ -35,20 +38,20 @@ const Leftmenu = ({ cat , setClose }) => {
                                 <button
                                     className="accordion-button"
                                     type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne"
-                                    // aria-expanded="true"
-                                    aria-controls="collapseOne"
-                                    onClick={()=> handleDropDown(el.node.id)}
+                                    data-bs-toggle={el.node.id}
+                                    data-bs-target={el.node.id}
+                                    aria-expanded="true"
+                                    aria-controls={el.node.id}
+                                    // onClick={()=> handleDropDown(el.node.id)}
                                 >
                                     {el?.node?.name}
                                 </button>
                             </h2>
                             <div
-                                // id="collapseOne"
-                                className={`accordion-collapse collapse drop ${data == el.node.id ? 'show' : ''}`}
-                                aria-labelledby="headingOne"
-                                // data-bs-parent="#accordionExample"
+                                id={el.node.id}
+                                className={`accordion-collapse collapse drop show  ${data == el.node.id ? 'show' : ''}`}
+                                aria-labelledby={el.node.id}
+                                data-bs-parent={el.node.id}
                             >
                                 <div className="accordion-body">
                                     <ul className="navbar-nav">
@@ -71,12 +74,54 @@ const Leftmenu = ({ cat , setClose }) => {
                 })}
 
 
-            </div >
+            </div > */}
 
-        </>
-    )
+            <div className="bodys">
+
+                <div class="container">
+                    <div class="faq-drawer">
+                        {cat?.edges?.map((el, index) => {
+                            return (
+                                <>
+                                    <input class="faq-drawer__trigger" id={el.node.id} type="checkbox" />
+                                    <label class="faq-drawer__title" for={el.node.id}>  {el?.node?.name} </label>
+                                    <div class="faq-drawer__content-wrapper ">
+                                        <div class="faq-drawer__content ">
+                                              <ul className="ulpadding">
+
+                                             
+                                                    {el?.node?.posts?.edges?.map((item, index) => {
+
+                                                        return (
+                                                            <li className="nav-item colorler" key={index}>
+                                                                <span className="nav-link white active" onClick={() => handleRoute(item.node.slug)}>
+                                                                    {item.node.title}
+                                                                </span>
+                                                            </li>
+
+
+                                                        )
+                                                    })}
+                                                     </ul>
+                                            
+                                            </div>
+                                        </div>
+                                    </>
+                                    )
+                        })}
+
+
+
+
+                                </div>
+                </div>
+                </div>
+
+
+            </>
+            )
 }
-export default Leftmenu
+            export default Leftmenu
 
 
 

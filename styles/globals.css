@@ -394,6 +394,99 @@ hr {
     color: #212529;
 }
 
+
+
+
+
+.bodys {
+    /* background-color: #FFF8F2; */
+    color: #373539;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.faq-drawer {
+    margin-bottom: 30px;
+}
+
+.faq-drawer__content-wrapper {
+    font-size: 1em;
+    line-height: 1.4em;
+    max-height: 0px;
+    overflow: hidden;
+    height: fit-content;
+    transition: 0.25s ease-in-out;
+}
+.ulpadding{
+    padding: 0;
+}
+.white{
+    color: white !important;
+
+}
+
+.faq-drawer__title {
+    /* border-top: #000 1px solid; */
+    cursor: pointer;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 20px 0 0 0;
+    position: relative;
+    margin-bottom: 0;
+    transition: all 0.25s ease-out;
+}
+
+.faq-drawer__title::after {
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    content: " ";
+    display: inline-block;
+    float: right;
+    height: 10px;
+    left: 2px;
+    position: relative;
+    right: 20px;
+    top: 2px;
+    transform: rotate(135deg);
+    transition: 0.35s ease-in-out;
+    vertical-align: top;
+    width: 10px;
+}
+
+/* OPTIONAL HOVER STATE */
+.faq-drawer__title:hover {
+    color: #4E4B52;
+}
+
+.colorler{
+    background: #f857a6;
+    background: linear-gradient(to right, #4535aa, #ed639e);
+    color: #ffffff;
+    box-shadow: 0 10px 20px -5px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+}
+
+.faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
+    max-height: 800px;
+}
+
+.faq-drawer__trigger:checked+.faq-drawer__title::after {
+    transform: rotate(-45deg);
+    transition: 0.25s ease-in-out;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 80px;
+    }
+}
+
+
 /*============ Header CSS End ============*/
 /*============ main-content CSS Start ============*/
 .banner {
@@ -752,7 +845,7 @@ hr {
     filter: brightness(0.2);
 }
 
-.drop{
+.drop {
     animation-duration: 3s;
 }
 
@@ -1181,7 +1274,8 @@ hr {
     .split_box {
         grid-template-columns: 100%;
     }
-    .margin-nav{
+
+    .margin-nav {
         margin: 12px 0px;
     }
 
@@ -1195,7 +1289,7 @@ hr {
         color: #ffffff;
         padding: 0.5rem;
         border-radius: 0.25rem;
-       
+
     }
 
     .aside_nav .navbar .navbar-collapse {
